@@ -1,6 +1,7 @@
 import { Animated, Button, Image, Modal, PanResponder, StyleSheet, Text, TextInput, View } from "react-native";
 import colors from "../../Constants/colors";
 import { useRef, useState } from "react";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const DraggableImage = ({ source, initialPosition, index }) => {
   const [shirtName, setShirtName] = useState('Düzenle');
@@ -76,8 +77,8 @@ const DraggableImage = ({ source, initialPosition, index }) => {
 
 const styles = StyleSheet.create({
   image: {
-    width: 80,
-    height: 80,
+    width: wp('15%'),
+    height: hp('9%'),
   },
   centeredView: {
     flex: 1,
@@ -106,13 +107,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderWidth: 1,
     padding: 10,
+    fontFamily: 'Nunito-Bold'
   },
   editText: {
-    fontSize: 20,
+    fontSize: hp('2%'),
     fontWeight: 'bold',
     color: colors.primaryFontColorDark,
-    textAlign: 'center',
-    width: 80
+    width: wp('22%'),
   }
 });
 

@@ -12,7 +12,7 @@ import shirt6 from '../../Images/shirts/6.png';
 import shirt7 from '../../Images/shirts/7.png';
 import shirt8 from '../../Images/shirts/8.png';
 import shirt9 from '../../Images/shirts/9.png';
-import fonts from '../../Constants/fonts';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function Home({ navigation }) {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -50,8 +50,8 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1, 
-    width: '100%', 
-    height: '100%' 
+    width: wp('100%'), 
+    height: hp('100%') 
   },
   container: {
     justifyContent: 'center',
@@ -62,16 +62,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20
+    marginBottom: 20,
+
   },
   topImage: {
-    height: 100, 
-    width: 300,
+    height: hp('17%'), 
+    width: wp('90%'),
+    objectFit: 'contain'
   },
   shirtSelect: {
     backgroundColor: colors.primaryColorLight,
-    width: '90%',
-    height: '60%',
+    width: wp('90%'),
+    height: hp('55%'),
     alignSelf: 'center',
     borderRadius: 10,
     flexDirection: 'row',
@@ -83,8 +85,8 @@ const styles = StyleSheet.create({
     margin: 5,
     borderWidth: 2,
     borderColor: colors.primaryColorDark,
-    width: 100 + 6,
-    height: 140 + 4,
+    width: wp('25%') + 6,
+    height: hp('16%') + 3,
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center'
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   goBtn: {
-    fontSize: 26,
+    fontSize: hp('3%'),
     color: colors.primaryColorDark,
     textAlign: 'center',
     lineHeight: 40,

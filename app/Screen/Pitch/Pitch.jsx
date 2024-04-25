@@ -5,20 +5,21 @@ import bench from '../../Images/appImages/bench.png';
 import pitchBg from '../../Images/appImages/ground.png';
 import DraggableImage from '../DraggableImage/DraggableImage';
 import colors from '../../Constants/colors';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function Pitch({ route, navigation }) {
   const { selectedImage } = route.params; 
 
   const initialPositions = [
-    { x: 165, y: 20 },
-    { x: 30, y: 100 },
-    { x: 320, y: 20 },
-    { x: 160, y: 30 },
-    { x: 60, y: 90 },
-    { x: 280, y: 0 },
-    { x: 165, y: -20 },
-    { x: 100, y: 21 },
-    { x: 20, y: -76 }
+    { x: wp('43%'), y: hp('2%') },
+    { x: wp('13%'), y: hp('7%')  },
+    { x: wp('73%'), y: hp('-4%')  },
+    { x: wp('43%'), y: hp('-2%')  },
+    { x: wp('13%'), y: hp('5%')  },
+    { x: wp('73%'), y: hp('-4%') },
+    { x: wp('43%'), y: hp('-5%')  },
+    { x: wp('7%'), y: hp('2%')  },
+    { x: wp('26%'), y: hp('-9%')  }
   ];
 
   const goBack = () => {
@@ -34,7 +35,7 @@ export default function Pitch({ route, navigation }) {
             <Image source={bench} style={styles.benchImg} />
           </View>
           <TouchableOpacity onPress={goBack} style={styles.goBackBtn}>
-            <Text style={{fontFamily: 'Nunito-Bold', fontSize: 24}}>Anasayfa</Text>
+            <Text style={{fontFamily: 'Nunito-Bold', fontSize: hp('3%')}}>Anasayfa</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.draggableContainer}>
@@ -59,16 +60,15 @@ const styles = StyleSheet.create({
   },
   pitchContainer: {
     flex: 1,
-    width: '100%', 
-    height: '85%', 
     position: 'relative', 
     top: 40
   },
   pitchImg: {
-    width: '100%',
-    height: '80%',
-    borderRadius: 20,
-    position: 'relative', 
+    width: wp('100%'),
+    height: hp('75%'),
+    borderRadius: 8,
+    position: 'relative',
+    objectFit: 'fill' 
   },
   draggableContainer: {
     position: 'absolute',
@@ -82,8 +82,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   goBackBtn: {
-    width: 110,
-    height: 40,
+    width: wp('30%'),
+    height: hp('6%'),
     backgroundColor: colors.primaryFontColorMed,
     borderRadius: 8,
     alignItems: 'center',
